@@ -31,7 +31,7 @@ export const BodyComponent = () => {
   };
 
   return (
-    <div className="mx-auto my-0 p-8">
+    <section className="mx-auto my-0 p-8">
       <motion.p 
         initial="hidden"
         whileInView="visible"
@@ -89,6 +89,6 @@ export const BodyComponent = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
