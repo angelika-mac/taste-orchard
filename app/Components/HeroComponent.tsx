@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ComponentProps } from "react";
+import FancyboxComponent from "./FancyboxComponent"
 
 export const HeroComponent = () => {
   const content = {
@@ -9,27 +10,32 @@ export const HeroComponent = () => {
     subbody_1: "Keep water between 67 and 68°C for a flavourful, tender yolk",
     images: ["/images/image1.jpg", "/images/image2.jpg", "/images/image3.jpg"],
   };
+
   return (
     <div className="flex flex-col lg:flex-row gap-8 mx-auto my-0 justify-center">
       <div className="flex gap-3 w-full min-h-[750px] md:min-h-[550px] lg:min-h-[750px] lg:w-1/2">
-        <ImageContainer
-          src={content.images[0]}
-          aria-label="hero_image1"
-          alt="image1"
-          className="cursor-pointer transition-transform duration-300 hover:scale-110"
-        />
+        
+          <ImageContainer
+            src={content.images[0]}
+            aria-label="hero_image1"
+            alt="image1"
+            className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
+            data-fancybox="gallery1"
+          />
         <div className="flex-1 flex flex-col gap-3">
           <ImageContainer
             src={content.images[1]}
             aria-label="hero_image2"
             alt="image2"
-            className="cursor-pointer transition-transform duration-300 hover:scale-110"
+            className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
+            data-fancybox="gallery2"
           />
           <ImageContainer
             src={content.images[2]}
             aria-label="hero_image3"
             alt="image3"
-            className="cursor-pointer transition-transform duration-300 hover:scale-110"
+            className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
+            data-fancybox="gallery3"
           />
         </div>
       </div>
@@ -62,7 +68,9 @@ export const HeroComponent = () => {
 function ImageContainer(props: ComponentProps<typeof Image>) {
   return (
     <div className="flex-1 relative overflow-hidden">
-      <Image layout="fill" objectFit="cover" {...props}  />
+      <FancyboxComponent>
+        <Image fill {...props} />
+      </FancyboxComponent>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import FancyboxComponent from "./FancyboxComponent"
 
 export const BodyComponent = () => {
   const copies = {
@@ -28,15 +29,17 @@ export const BodyComponent = () => {
       <div className="flex flex-col md:flex-row gap-8 pt-8 flex-wrap justify-center items-start">
         {copies.contents.map((content) => (
           <div key={content.title} className="flex flex-col gap-4 w-full md:w-[40%] lg:w-[30%]" aria-label={`body_content${content.title}_container`}>
-            <div className="w-auto h-[200px] relative overflow-hidden">
-              <Image
-                layout="fill"
-                objectFit="fill"
-                src={content.image}
-                alt={content.title}
-                className="cursor-pointer transition-transform duration-300 hover:scale-110"
-                aria-label={`body_content${content.title}_image`}
-              />
+            <div className="w-full aspect-[3/2] relative overflow-hidden">
+              <FancyboxComponent>
+                <Image
+                  fill
+                  className="cursor-pointer transition-transform duration-300 hover:scale-110"
+                  src={content.image}
+                  alt={content.title}
+                  aria-label={`body_content${content.title}_image`}
+                  data-fancybox={`gallery${content.title}`}
+                />
+              </FancyboxComponent>
             </div>
 
             <div className="flex flex-col text-center gap-4 text-xl justify-center items-center">
