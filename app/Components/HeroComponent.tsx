@@ -23,7 +23,7 @@ export const HeroComponent = () => {
         className="flex flex-col lg:flex-row gap-8 mx-auto my-0 justify-center"
       >
         
-        <div className="flex gap-3 w-full min-h-[750px] md:min-h-[550px] lg:min-h-[750px] lg:w-1/2">
+        <div className="flex gap-3 w-full min-h-[350px] md:min-h-[550px] lg:min-h-[750px] lg:w-1/2">
           
             <ImageContainer
               src={content.images[0]}
