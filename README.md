@@ -1,4 +1,4 @@
-# Taste Orchard  
+# Tasteeology - Orchard Frontend test  
 
 ## Tech Stack  
 This project is built using:  
