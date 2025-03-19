@@ -16,20 +16,20 @@ export const HeroComponent = () => {
           src={content.images[0]}
           aria-label="hero_image1"
           alt="image1"
-          className="cursor-pointer"
+          className="cursor-pointer transition-transform duration-300 hover:scale-110"
         />
         <div className="flex-1 flex flex-col gap-3">
           <ImageContainer
             src={content.images[1]}
             aria-label="hero_image2"
             alt="image2"
-            className="cursor-pointer"
+            className="cursor-pointer transition-transform duration-300 hover:scale-110"
           />
           <ImageContainer
             src={content.images[2]}
             aria-label="hero_image3"
             alt="image3"
-            className="cursor-pointer"
+            className="cursor-pointer transition-transform duration-300 hover:scale-110"
           />
         </div>
       </div>
@@ -61,7 +61,7 @@ export const HeroComponent = () => {
 
 function ImageContainer(props: ComponentProps<typeof Image>) {
   return (
-    <div className="flex-1 relative">
+    <div className="flex-1 relative overflow-hidden">
       <Image layout="fill" objectFit="cover" {...props}  />
     </div>
   );

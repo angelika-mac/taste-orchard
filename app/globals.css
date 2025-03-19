@@ -23,9 +23,16 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Open Sans";
+  font-family: "Open Sans", Helvetica, sans-serif;
 }
 
 .text-accentRed {
   color: var(--accent-red);
 }
+
+.cursor-glow {
+  @apply pointer-events-none fixed w-[40rem] h-[40rem] bg-gradient-to-r from-gray-100 to-white opacity-5 rounded-full blur-[100px] transform -translate-x-1/2 -translate-y-1/2;
+}
+
+
+

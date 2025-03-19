@@ -17,7 +17,7 @@ export const BodyComponent = () => {
       {
         image: "/images/image6.jpg",
         title: "White",
-        text: "Fresh, zingy green colours are reminiscent of unripe fruit, promising sour or acid flavours",
+        text: "White foods evoke memories of salt and salty flavours, driving the expectation of a savoury treat.",
       },
     ],
   };
@@ -28,13 +28,13 @@ export const BodyComponent = () => {
       <div className="flex flex-col md:flex-row gap-8 pt-8 flex-wrap justify-center items-start">
         {copies.contents.map((content) => (
           <div key={content.title} className="flex flex-col gap-4 w-full md:w-[40%] lg:w-[30%]" aria-label={`body_content${content.title}_container`}>
-            <div className="w-auto h-[250px] relative ">
+            <div className="w-auto h-[200px] relative overflow-hidden">
               <Image
                 layout="fill"
-                objectFit="contain"
+                objectFit="fill"
                 src={content.image}
                 alt={content.title}
-                className="cursor-pointer"
+                className="cursor-pointer transition-transform duration-300 hover:scale-110"
                 aria-label={`body_content${content.title}_image`}
               />
             </div>

@@ -3,9 +3,11 @@
 import Head from "next/head";
 import { HeroComponent } from "./Components/HeroComponent";
 import { BodyComponent } from "./Components/BodyComponent";
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+
+  /** onclick event */
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
@@ -23,12 +25,29 @@ export default function Home() {
     };
   }, []);
 
+
+  /** cursor glow */
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  
+  useEffect(() => {
+    const moveCursor = (e: MouseEvent) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", moveCursor);
+    return () => window.removeEventListener("mousemove", moveCursor);
+  }, []);
+
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <div className="text-white">
+      <div
+      className="cursor-glow"
+      style={{ left: `${position.x}px`, top: `${position.y}px` }}
+    />
         <Section>
           <HeroComponent />
         </Section>
