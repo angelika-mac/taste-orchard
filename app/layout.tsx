@@ -20,14 +20,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: 'https://tasteologybyam.netlify.app/images/og_image.jpg',
-        width: 800,
-        height: 600,
-      },
-      {
-        url: 'https://tasteologybyam.netlify.app/images/og_image.jpg',
         width: 1200,
         height: 630,
-        alt: 'angelika macapagal website',
+        alt: 'aasteology by AM',
       },
     ],
     locale: 'en_US',
