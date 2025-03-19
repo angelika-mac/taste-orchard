@@ -1,4 +1,12 @@
 import Image from "next/image";
+import FancyboxComponent from "./FancyboxComponent"
+
+import { motion } from "framer-motion";
+
+const variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
 
 export const BodyComponent = () => {
   const copies = {
@@ -17,31 +25,66 @@ export const BodyComponent = () => {
       {
         image: "/images/image6.jpg",
         title: "White",
-        text: "Fresh, zingy green colours are reminiscent of unripe fruit, promising sour or acid flavours",
+        text: "White foods evoke memories of salt and salty flavours, driving the expectation of a savoury treat.",
       },
     ],
   };
 
   return (
     <div className="mx-auto my-0 p-8">
-      <p className="uppercase text-center pb-8 mx-auto my-0 border-b-amber-50 border-b-[1px] text-2xl w-full md:w-max" aria-label={`body_heading`}>{copies.title}</p>
-      <div className="flex flex-col lg:flex-row gap-8 pt-8">
+      <motion.p 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={variants}
+        className="uppercase text-center pb-8 mx-auto my-0 border-b-amber-50 border-b-[1px] text-2xl w-full md:w-max" 
+        aria-label={`body_heading`}
+        >
+        {copies.title}
+      </motion.p>
+      <div className="flex flex-col md:flex-row gap-8 pt-8 flex-wrap justify-center items-start">
         {copies.contents.map((content) => (
-          <div key={content.title} className="flex flex-col gap-4 w-full md:w-[30%]" aria-label={`body_content${content.title}_container`}>
-            <div className="w-auto h-[250px] relative pt-8">
-              <Image
-                layout="fill"
-                objectFit="contain"
-                src={content.image}
-                alt={content.title}
-                className="cursor-pointer"
-                aria-label={`body_content${content.title}_image`}
-              />
-            </div>
+          <div key={content.title} className="flex flex-col gap-4 w-full md:w-[40%] lg:w-[30%]" aria-label={`body_content${content.title}_container`}>
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={variants}
+              className="w-full aspect-[3/2] relative overflow-hidden"
+              >
+              <FancyboxComponent>
+                <Image
+                  fill
+                  className="cursor-pointer transition-transform duration-300 hover:scale-110"
+                  src={content.image}
+                  alt={content.title}
+                  aria-label={`body_content${content.title}_image`}
+                  data-fancybox={`gallery${content.title}`}
+                />
+              </FancyboxComponent>
+            </motion.div>
 
-            <div className="flex flex-col text-center gap-4 text-xl">
-              <p className="uppercase font-bold pb-2.5" aria-label={`body_content${content.title}_title`}>{content.title}</p>
-              <p className="px-4" aria-label={`body_content${content.title}_text`}>{content.text}</p>
+            <div className="flex flex-col text-center gap-4 text-xl justify-center items-center">
+              <motion.p 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={variants}
+                className="uppercase font-bold pb-2.5"
+                aria-label={`body_content${content.title}_title`}
+              >
+                {content.title}
+              </motion.p>
+              <motion.p 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={variants}
+                className="px-4 font-light" 
+                aria-label={`body_content${content.title}_text`}
+              >
+                {content.text}
+              </motion.p>
             </div>
           </div>
         ))}
