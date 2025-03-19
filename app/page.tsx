@@ -41,7 +41,12 @@ export default function Home() {
   return (
     <>
       <Head>
+        <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#0E1414" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
       </Head>
       <div className="text-white">
       <div

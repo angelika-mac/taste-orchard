@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { ComponentProps } from "react";
 import FancyboxComponent from "./FancyboxComponent"
+import { motion } from "framer-motion";
+
 
 export const HeroComponent = () => {
   const content = {
@@ -12,56 +14,64 @@ export const HeroComponent = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-8 mx-auto my-0 justify-center">
-      <div className="flex gap-3 w-full min-h-[750px] md:min-h-[550px] lg:min-h-[750px] lg:w-1/2">
+      <motion.div 
+        key={content.title}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+        className="flex flex-col lg:flex-row gap-8 mx-auto my-0 justify-center"
+      >
         
-          <ImageContainer
-            src={content.images[0]}
-            aria-label="hero_image1"
-            alt="image1"
-            className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
-            data-fancybox="gallery1"
-          />
-        <div className="flex-1 flex flex-col gap-3">
-          <ImageContainer
-            src={content.images[1]}
-            aria-label="hero_image2"
-            alt="image2"
-            className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
-            data-fancybox="gallery2"
-          />
-          <ImageContainer
-            src={content.images[2]}
-            aria-label="hero_image3"
-            alt="image3"
-            className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
-            data-fancybox="gallery3"
-          />
+        <div className="flex gap-3 w-full min-h-[750px] md:min-h-[550px] lg:min-h-[750px] lg:w-1/2">
+          
+            <ImageContainer
+              src={content.images[0]}
+              aria-label="hero_image1"
+              alt="image1"
+              className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
+              data-fancybox="gallery1"
+            />
+          <div className="flex-1 flex flex-col gap-3">
+            <ImageContainer
+              src={content.images[1]}
+              aria-label="hero_image2"
+              alt="image2"
+              className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
+              data-fancybox="gallery2"
+            />
+            <ImageContainer
+              src={content.images[2]}
+              aria-label="hero_image3"
+              alt="image3"
+              className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
+              data-fancybox="gallery3"
+            />
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col gap-8 w-full lg:w-[20%]">
-        <p
-          className="pb-8 border-b-amber-50 border-b-[1px] uppercase text-2xl"
-          aria-label="hero_title"
-        >
-          {content.title}
-        </p>
-        <p className="text-xl font-light" aria-label="hero_body">
-          {content.body}
-        </p>
-        <div>
+        <div className="flex flex-col gap-8 w-full lg:w-[20%]">
           <p
-            className="text-accentRed uppercase font-bold text-lg pb-4"
-            aria-label="hero_subtitle1"
+            className="pb-8 border-b-amber-50 border-b-[1px] uppercase text-2xl"
+            aria-label="hero_title"
           >
-            {content.subtitle_1}
+            {content.title}
           </p>
-          <p className="font-bold text-xl" aria-label="hero_subbody1">
-            {content.subbody_1}
+          <p className="text-xl font-light" aria-label="hero_body">
+            {content.body}
           </p>
+          <div>
+            <p
+              className="text-accentRed uppercase font-bold text-lg pb-4"
+              aria-label="hero_subtitle1"
+            >
+              {content.subtitle_1}
+            </p>
+            <p className="font-bold text-xl" aria-label="hero_subbody1">
+              {content.subbody_1}
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
   );
 };
 
