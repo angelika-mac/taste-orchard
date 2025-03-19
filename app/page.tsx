@@ -48,7 +48,7 @@ export default function Home() {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
       </Head>
-      <div className="text-white">
+      <div className="text-white w-max-[1400px]">
       <div
       className="cursor-glow"
       style={{ left: `${position.x}px`, top: `${position.y}px` }}
@@ -67,7 +67,8 @@ export default function Home() {
 
 function Section({ children }: { children: React.ReactNode}) {
   return (
-    <section className="px-8 py-6 lg:px-[147px] lg:py-[120px]">
+    // 
+    <section className="px-8 py-6 pb-[120px] lg:px-[147px] lg:py-[120px]">
       {children}
     </section>
   )

@@ -13,6 +13,8 @@ export const HeroComponent = () => {
     images: ["/images/image1.jpg", "/images/image2.jpg", "/images/image3.jpg"],
   };
 
+  const heroImageClass = "cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
+
   return (
       <motion.div 
         key={content.title}
@@ -20,26 +22,26 @@ export const HeroComponent = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.6 }}
         viewport={{ once: true, amount: 0.3 }}
-        className="flex flex-col lg:flex-row gap-8 mx-auto my-0 justify-center"
+        className="flex flex-col lg:justify-evenly lg:flex-row mx-auto my-0 justify-start gap-8 lg:gap-0"
       >
         
-        <div className="flex gap-3 w-full min-h-[350px] md:min-h-[550px] lg:min-h-[750px] lg:w-1/2">
-          
+        <div className="flex gap-3 w-full lg:w-[70%] min-h-[350px] md:min-h-[550px] lg:min-h-[750px]">
             <ImageContainer
               src={content.images[0]}
               aria-labelledby="hero_image1"
               alt="image1"
               aria-label="image1"
-              className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
+              className={heroImageClass}
               data-fancybox="gallery1"
             />
+
           <div className="flex-1 flex flex-col gap-3">
             <ImageContainer
               src={content.images[1]}
               aria-labelledby="hero_image2"
               alt="image2"
               aria-label="image2"
-              className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
+              className={heroImageClass}
               data-fancybox="gallery2"
             />
             <ImageContainer
@@ -47,7 +49,7 @@ export const HeroComponent = () => {
               aria-labelledby="hero_image3"
               alt="image3"
               aria-label="image3"
-              className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
+              className={heroImageClass}
               data-fancybox="gallery3"
             />
           </div>
