@@ -14,7 +14,7 @@ export const HeroComponent = () => {
   };
 
   return (
-      <motion.section 
+      <motion.div 
         key={content.title}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export const HeroComponent = () => {
             </p>
           </div>
         </div>
-      </motion.section>
+      </motion.div>
   );
 };
 

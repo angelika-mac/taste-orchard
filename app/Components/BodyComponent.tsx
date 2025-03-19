@@ -31,7 +31,7 @@ export const BodyComponent = () => {
   };
 
   return (
-    <section className="mx-auto my-0 p-8">
+    <div className="mx-auto my-0 p-8">
       <motion.h2 
         initial="hidden"
         whileInView="visible"
@@ -72,11 +72,10 @@ export const BodyComponent = () => {
               whileInView="visible"
               viewport={{ once: true }}
               variants={variants}
-              className="flex flex-col text-center gap-4 text-xl justify-center items-center"
+              className="flex flex-col text-center gap-4 text-xl justify-center items-center pt-8"
             >
               <p 
-                
-                className="uppercase font-bold pb-2.5"
+                className="uppercase font-bold"
                 aria-labelledby={`body_content${content.title}_title`}
               >
                 {content.title}
@@ -91,6 +90,6 @@ export const BodyComponent = () => {
           </article>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
