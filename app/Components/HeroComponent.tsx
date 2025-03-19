@@ -25,7 +25,7 @@ export const HeroComponent = () => {
       className="flex flex-col md:flex-row lg:justify-evenly mx-auto my-0 justify-start gap-8"
     >
     
-    <div className="flex gap-3 w-full md:w-full lg:w-[60%] min-h-[350px] md:min-h-[450px] lg:min-h-[600px]">
+    <div className="flex gap-3 w-full md:w-full lg:w-[70%] min-h-[350px] md:min-h-[450px] lg:min-h-[600px]">
         <ImageContainer
           src={content.images[0]}
           aria-labelledby="hero_image1"
@@ -51,7 +51,7 @@ export const HeroComponent = () => {
       </div>
     </div>
   
-    <div className="flex flex-col gap-8 w-full md:w-full lg:w-[40%]">
+    <div className="flex flex-col gap-8 w-full md:w-full lg:w-[30%]">
       <a href="#">
         <h2 className="pb-8 border-b-amber-50 border-b-[1px] uppercase text-2xl" aria-labelledby="hero_title">
           {content.title}

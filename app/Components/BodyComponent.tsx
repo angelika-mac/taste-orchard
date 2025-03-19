@@ -44,9 +44,9 @@ export const BodyComponent = () => {
           {copies.title}
         </motion.h2>
       </a>
-      <div className="flex flex-col md:flex-row gap-8 pt-8 flex-wrap justify-center items-start">
+      <div className="flex flex-col md:flex-row gap-3 pt-8 flex-wrap justify-center items-start">
         {copies.contents.map((content, index) => (
-          <article key={`content_${index}`} className="flex flex-col gap-4 w-full md:w-[47%] lg:w-[30%]" aria-labelledby={`body_content${content.title}_container`}>
+          <article key={`content_${index}`} className="flex flex-col gap-4 w-full md:w-[47%] lg:w-[31%]" aria-labelledby={`body_content${content.title}_container`}>
             <motion.figure 
               initial="hidden"
               whileInView="visible"
