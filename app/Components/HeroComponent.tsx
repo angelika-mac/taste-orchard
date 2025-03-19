@@ -27,46 +27,49 @@ export const HeroComponent = () => {
           
             <ImageContainer
               src={content.images[0]}
-              aria-label="hero_image1"
+              aria-labelledby="hero_image1"
               alt="image1"
+              aria-label="image1"
               className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
               data-fancybox="gallery1"
             />
           <div className="flex-1 flex flex-col gap-3">
             <ImageContainer
               src={content.images[1]}
-              aria-label="hero_image2"
+              aria-labelledby="hero_image2"
               alt="image2"
+              aria-label="image2"
               className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
               data-fancybox="gallery2"
             />
             <ImageContainer
               src={content.images[2]}
-              aria-label="hero_image3"
+              aria-labelledby="hero_image3"
               alt="image3"
+              aria-label="image3"
               className="cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
               data-fancybox="gallery3"
             />
           </div>
         </div>
         <div className="flex flex-col gap-8 w-full lg:w-[20%]">
-          <p
+          <h2
             className="pb-8 border-b-amber-50 border-b-[1px] uppercase text-2xl"
-            aria-label="hero_title"
+            aria-labelledby="hero_title"
           >
             {content.title}
-          </p>
-          <p className="text-xl font-light" aria-label="hero_body">
+          </h2>
+          <p className="text-xl font-light" aria-labelledby="hero_body">
             {content.body}
           </p>
           <div>
-            <p
+            <h3
               className="text-accentRed uppercase font-bold text-lg pb-4"
-              aria-label="hero_subtitle1"
+              aria-labelledby="hero_subtitle1"
             >
               {content.subtitle_1}
-            </p>
-            <p className="font-bold text-xl" aria-label="hero_subbody1">
+            </h3>
+            <p className="font-bold text-xl" aria-labelledby="hero_subbody1">
               {content.subbody_1}
             </p>
           </div>
@@ -77,10 +80,10 @@ export const HeroComponent = () => {
 
 function ImageContainer(props: ComponentProps<typeof Image>) {
   return (
-    <div className="flex-1 relative overflow-hidden">
+    <figure className="flex-1 relative overflow-hidden">
       <FancyboxComponent>
-        <Image fill {...props} />
+        <Image fill priority sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" {...props} />
       </FancyboxComponent>
-    </div>
+    </figure>
   );
 }
