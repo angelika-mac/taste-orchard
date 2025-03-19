@@ -11,7 +11,7 @@ export const HeroComponent = () => {
   };
   return (
     <div className="flex flex-col lg:flex-row gap-8 mx-auto my-0 justify-center">
-      <div className="flex gap-3 w-full min-h-[350px] sm:w-1/2 sm:h-auto">
+      <div className="flex gap-3 w-full min-h-[750px] md:min-h-[550px] lg:min-h-[750px] lg:w-1/2">
         <ImageContainer
           src={content.images[0]}
           aria-label="hero_image1"
@@ -40,12 +40,12 @@ export const HeroComponent = () => {
         >
           {content.title}
         </p>
-        <p className="text-xl" aria-label="hero_body">
+        <p className="text-xl font-light" aria-label="hero_body">
           {content.body}
         </p>
         <div>
           <p
-            className="text-red-700 uppercase font-bold text-lg pb-4"
+            className="text-accentRed uppercase font-bold text-lg pb-4"
             aria-label="hero_subtitle1"
           >
             {content.subtitle_1}

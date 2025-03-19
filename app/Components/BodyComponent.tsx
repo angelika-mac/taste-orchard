@@ -25,10 +25,10 @@ export const BodyComponent = () => {
   return (
     <div className="mx-auto my-0 p-8">
       <p className="uppercase text-center pb-8 mx-auto my-0 border-b-amber-50 border-b-[1px] text-2xl w-full md:w-max" aria-label={`body_heading`}>{copies.title}</p>
-      <div className="flex flex-col lg:flex-row gap-8 pt-8">
+      <div className="flex flex-col md:flex-row gap-8 pt-8 flex-wrap justify-center items-start">
         {copies.contents.map((content) => (
-          <div key={content.title} className="flex flex-col gap-4 w-full md:w-[30%]" aria-label={`body_content${content.title}_container`}>
-            <div className="w-auto h-[250px] relative pt-8">
+          <div key={content.title} className="flex flex-col gap-4 w-full md:w-[40%] lg:w-[30%]" aria-label={`body_content${content.title}_container`}>
+            <div className="w-auto h-[250px] relative ">
               <Image
                 layout="fill"
                 objectFit="contain"
@@ -39,9 +39,9 @@ export const BodyComponent = () => {
               />
             </div>
 
-            <div className="flex flex-col text-center gap-4 text-xl">
+            <div className="flex flex-col text-center gap-4 text-xl justify-center items-center">
               <p className="uppercase font-bold pb-2.5" aria-label={`body_content${content.title}_title`}>{content.title}</p>
-              <p className="px-4" aria-label={`body_content${content.title}_text`}>{content.text}</p>
+              <p className="px-4 font-light" aria-label={`body_content${content.title}_text`}>{content.text}</p>
             </div>
           </div>
         ))}
