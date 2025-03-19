@@ -2,7 +2,8 @@
 
 import Head from "next/head";
 import { HeroComponent } from "./Components/HeroComponent";
-import { useEffect } from "react";
+import { BodyComponent } from "./Components/BodyComponent";
+import React, { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
@@ -27,11 +28,23 @@ export default function Home() {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <div className="max-w-[1400px] mx-8 lg:mx-auto my-0">
-        <div className="py-24 text-white">
+      <div className="text-white">
+        <Section>
           <HeroComponent />
-        </div>
+        </Section>
+        <Section>
+          <BodyComponent />
+        </Section>
       </div>
     </>
   );
+}
+
+
+function Section({ children }: { children: React.ReactNode}) {
+  return (
+    <div className="px-8 py-6 sm:px-[147px] sm:py-[120px]">
+      {children}
+    </div>
+  )
 }
