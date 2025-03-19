@@ -32,19 +32,21 @@ export const BodyComponent = () => {
 
   return (
     <div className="mx-auto my-0">
-      <motion.h2 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={variants}
-        className="uppercase text-center pb-8 mx-auto my-0 border-b-amber-50 border-b-[1px] text-2xl w-full md:w-max" 
-        aria-labelledby={`body_heading`}
-        >
-        {copies.title}
-      </motion.h2>
+      <a href="#">
+        <motion.h2 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={variants}
+          className="uppercase text-center pb-8 mx-auto my-0 border-b-amber-50 border-b-[1px] text-2xl w-full md:w-max" 
+          aria-labelledby={`body_heading`}
+          >
+          {copies.title}
+        </motion.h2>
+      </a>
       <div className="flex flex-col md:flex-row gap-8 pt-8 flex-wrap justify-center items-start">
         {copies.contents.map((content, index) => (
-          <article key={`content_${index}`} className="flex flex-col gap-4 w-full md:w-[40%] lg:w-[30%]" aria-labelledby={`body_content${content.title}_container`}>
+          <article key={`content_${index}`} className="flex flex-col gap-4 w-full md:w-[47%] lg:w-[30%]" aria-labelledby={`body_content${content.title}_container`}>
             <motion.figure 
               initial="hidden"
               whileInView="visible"
@@ -53,17 +55,19 @@ export const BodyComponent = () => {
               className="w-full aspect-[3/2] relative overflow-hidden"
               >
               <FancyboxComponent>
-                <Image
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="cursor-pointer transition-transform duration-300 hover:scale-110"
-                  src={content.image}
-                  alt={content.title}
-                  aria-label={`image for ${content.title}`}
-                  aria-labelledby={`body_content${content.title}_image`}
-                  data-fancybox={`gallery${content.title}`}
-                />
+                <a href="#">
+                  <Image
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="cursor-pointer transition-transform duration-300 hover:scale-110"
+                    src={content.image}
+                    alt={content.title}
+                    aria-label={`image for ${content.title}`}
+                    aria-labelledby={`body_content${content.title}_image`}
+                    data-fancybox={`gallery${content.title}`}
+                  />
+                </a>
               </FancyboxComponent>
             </motion.figure>
 
@@ -74,18 +78,22 @@ export const BodyComponent = () => {
               variants={variants}
               className="flex flex-col text-center gap-4 text-xl justify-center items-center pt-8"
             >
-              <p 
-                className="uppercase font-bold"
-                aria-labelledby={`body_content${content.title}_title`}
-              >
-                {content.title}
-              </p>
-              <p
-                className="px-4 font-light" 
-                aria-labelledby={`body_content${content.title}_text`}
-              >
-                {content.text}
-              </p>
+              <a href="#">
+                <p 
+                  className="uppercase font-bold"
+                  aria-labelledby={`body_content${content.title}_title`}
+                >
+                  {content.title}
+                </p>
+              </a>
+              <a href="#">
+                <p
+                  className="px-4 font-light" 
+                  aria-labelledby={`body_content${content.title}_text`}
+                >
+                  {content.text}
+                </p>
+              </a>
             </motion.figcaption>
           </article>
         ))}

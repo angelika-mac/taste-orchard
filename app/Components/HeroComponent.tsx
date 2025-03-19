@@ -16,67 +16,67 @@ export const HeroComponent = () => {
   const heroImageClass = "cursor-pointer transition-transform duration-300 hover:scale-110 object-cover"
 
   return (
-      <motion.div 
-        key={content.title}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        viewport={{ once: true, amount: 0.3 }}
-        className="flex flex-col lg:justify-evenly lg:flex-row mx-auto my-0 justify-start gap-8 lg:gap-0"
-      >
-        
-        <div className="flex gap-3 w-full lg:w-[70%] min-h-[350px] md:min-h-[550px] lg:min-h-[750px]">
-            <ImageContainer
-              src={content.images[0]}
-              aria-labelledby="hero_image1"
-              alt="image1"
-              aria-label="image1"
-              className={heroImageClass}
-              data-fancybox="gallery1"
-            />
-
-          <div className="flex-1 flex flex-col gap-3">
-            <ImageContainer
-              src={content.images[1]}
-              aria-labelledby="hero_image2"
-              alt="image2"
-              aria-label="image2"
-              className={heroImageClass}
-              data-fancybox="gallery2"
-            />
-            <ImageContainer
-              src={content.images[2]}
-              aria-labelledby="hero_image3"
-              alt="image3"
-              aria-label="image3"
-              className={heroImageClass}
-              data-fancybox="gallery3"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col gap-8 w-full lg:w-[20%]">
-          <h2
-            className="pb-8 border-b-amber-50 border-b-[1px] uppercase text-2xl"
-            aria-labelledby="hero_title"
-          >
-            {content.title}
-          </h2>
-          <p className="text-xl font-light" aria-labelledby="hero_body">
-            {content.body}
+    <motion.div 
+      key={content.title}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2, duration: 0.6 }}
+      viewport={{ once: true, amount: 0.3 }}
+      className="flex flex-col md:flex-row lg:justify-evenly mx-auto my-0 justify-start gap-8"
+    >
+    
+    <div className="flex gap-3 w-full md:w-full lg:w-[60%] min-h-[350px] md:min-h-[450px] lg:min-h-[600px]">
+        <ImageContainer
+          src={content.images[0]}
+          aria-labelledby="hero_image1"
+          alt="image1"
+          className={heroImageClass}
+          data-fancybox="gallery1"
+        />
+      <div className="flex-1 flex flex-col gap-3">
+        <ImageContainer
+          src={content.images[1]}
+          aria-labelledby="hero_image2"
+          alt="image2"
+          className={heroImageClass}
+          data-fancybox="gallery2"
+        />
+        <ImageContainer
+          src={content.images[2]}
+          aria-labelledby="hero_image3"
+          alt="image3"
+          className={heroImageClass}
+          data-fancybox="gallery3"
+        />
+      </div>
+    </div>
+  
+    <div className="flex flex-col gap-8 w-full md:w-full lg:w-[40%]">
+      <a href="#">
+        <h2 className="pb-8 border-b-amber-50 border-b-[1px] uppercase text-2xl" aria-labelledby="hero_title">
+          {content.title}
+        </h2>
+      </a>
+      <a href="#">
+        <p className="text-xl font-light" aria-labelledby="hero_body">
+          {content.body}
+        </p>
+      </a>
+      <div>
+        <a href="#">
+          <h3 className="text-accentRed uppercase font-bold text-lg pb-4" aria-labelledby="hero_subtitle1">
+            {content.subtitle_1}
+          </h3>
+        </a>
+        <a href="#">
+          <p className="font-bold text-xl" aria-labelledby="hero_subbody1">
+            {content.subbody_1}
           </p>
-          <div>
-            <h3
-              className="text-accentRed uppercase font-bold text-lg pb-4"
-              aria-labelledby="hero_subtitle1"
-            >
-              {content.subtitle_1}
-            </h3>
-            <p className="font-bold text-xl" aria-labelledby="hero_subbody1">
-              {content.subbody_1}
-            </p>
-          </div>
-        </div>
-      </motion.div>
+        </a>
+      </div>
+    </div>
+  </motion.div>
+  
   );
 };
 
@@ -84,7 +84,9 @@ function ImageContainer(props: ComponentProps<typeof Image>) {
   return (
     <figure className="flex-1 relative overflow-hidden">
       <FancyboxComponent>
-        <Image fill priority sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" {...props} />
+        <a href="#">
+          <Image fill priority sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" {...props} />
+        </a>
       </FancyboxComponent>
     </figure>
   );

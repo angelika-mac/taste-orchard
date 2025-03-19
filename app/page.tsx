@@ -11,10 +11,10 @@ export default function Home() {
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      const ariaLabel = target.getAttribute("aria-label");
+      const ariaLabelledBy = target.getAttribute("aria-labelledby");
 
-      if (ariaLabel) {
-        console.log(`element clicked: ${ariaLabel}`);
+      if (ariaLabelledBy) {
+        console.log(`element clicked: ${ariaLabelledBy}`);
       }
     };
 
@@ -48,7 +48,7 @@ export default function Home() {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
       </Head>
-      <div className="text-white w-max-[1400px]">
+      <div className="text-white max-w-[1150px] mx-auto my-0">
       <div
       className="cursor-glow"
       style={{ left: `${position.x}px`, top: `${position.y}px` }}
@@ -68,7 +68,7 @@ export default function Home() {
 function Section({ children }: { children: React.ReactNode}) {
   return (
     // 
-    <section className="px-8 py-6 pb-[120px] lg:px-[147px] lg:py-[120px]">
+    <section className="px-16 py-[120px] lg:px-[147px]">
       {children}
     </section>
   )
