@@ -68,7 +68,7 @@ export default function Home() {
 function Section({ children }: { children: React.ReactNode}) {
   return (
     // 
-    <section className="px-16 py-[120px]">
+    <section className="px-8 md:px-16 py-[120px]">
       {children}
     </section>
   )
